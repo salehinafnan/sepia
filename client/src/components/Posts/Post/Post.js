@@ -33,7 +33,7 @@ const Post = ({ post, setCurrentId }) => {
       <div className={classes.overlay}>
         <Typography variant="h6">{post.creator}</Typography>
         <Typography variant="body2">
-          {moment.utc(post.createdAt).fromNow()}
+          {moment(post.createdAt).fromNow()}
         </Typography>
       </div>
       <div className={classes.overlay2}>
