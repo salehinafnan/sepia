@@ -13,6 +13,7 @@ export default makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
+    backgroundColor: "rgba(255, 255, 255, 0.5)",
   },
   fileInput: {
     width: "97%",
