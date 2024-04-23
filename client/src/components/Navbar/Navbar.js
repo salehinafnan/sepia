@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { AppBar, Avatar, Button, Toolbar, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import useStyles from "./styles";
+
 import banner from "../../images/banner.png";
+import * as actionType from "../../constants/actionTypes";
+import useStyles from "./styles";
 
 const Navbar = () => {
   const classes = useStyles();
@@ -13,7 +15,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const logout = () => {
-    dispatch({ type: "LOGOUT" });
+    dispatch({ type: actionType.LOGOUT });
     history.pushState("/");
     setUser(null);
   };
