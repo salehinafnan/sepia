@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { GoogleLogin } from "react-google-login";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
 import {
   Avatar,
   Button,
@@ -11,11 +10,12 @@ import {
   Typography,
   Container,
 } from "@material-ui/core";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Icon from "./icon";
 
 import Input from "./Input";
+import { AUTH } from "../../constants/actionTypes";
 import useStyles from "./styles";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Icon from "./icon";
 
 const Auth = () => {
   const classes = useStyles();
@@ -40,7 +40,7 @@ const Auth = () => {
     const token = res?.tokenId;
 
     try {
-      dispatch({ type: "AUTH", data: { result, token } });
+      dispatch({ type: AUTH, data: { result, token } });
       history.push("/");
     } catch (error) {
       console.log(error);
