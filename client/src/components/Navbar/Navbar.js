@@ -42,12 +42,12 @@ const Navbar = () => {
           component={Link}
           to="/"
           className={classes.heading}
-          variant="h2"
+          variant="h4"
           align="center"
         >
           Sepia
         </Typography>
-        <img className={classes.image} src={banner} alt="icon" height="60" />
+        <img className={classes.image} src={banner} alt="icon" height="40" />
       </div>
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
