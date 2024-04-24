@@ -41,6 +41,7 @@ const Auth = () => {
 
     try {
       dispatch({ type: AUTH, data: { result, token } });
+
       history.push("/");
     } catch (error) {
       console.log(error);
