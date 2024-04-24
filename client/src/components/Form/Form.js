@@ -47,7 +47,7 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
       <Paper className={classes.paper}>
         <Typography variant="h6" align="center">
-          Please Sign In to create your own post and like other's posts.
+          Please Sign In to Continue.
         </Typography>
       </Paper>
     );
@@ -62,7 +62,7 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
-          {currentId ? `Editing "${post.title}"` : "Creating a Memory"}
+          {currentId ? `Edit Post "${post.title}"` : "Create Post"}
         </Typography>
         <TextField
           name="title"
@@ -75,7 +75,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <TextField
           name="message"
           variant="outlined"
-          label="Message"
+          label="Caption"
           fullWidth
           multiline
           minRows={4}
@@ -87,7 +87,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <TextField
           name="tags"
           variant="outlined"
-          label="Tags (coma separated)"
+          label="Tags"
           fullWidth
           value={postData.tags}
           onChange={(e) =>
@@ -111,7 +111,7 @@ const Form = ({ currentId, setCurrentId }) => {
           type="submit"
           fullWidth
         >
-          Submit
+          Post
         </Button>
         <Button
           variant="contained"

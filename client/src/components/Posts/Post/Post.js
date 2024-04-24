@@ -102,6 +102,7 @@ const Post = ({ post, setCurrentId }) => {
           color="primary"
           disabled={!user?.result}
           onClick={() => dispatch(likePost(post._id))}
+          style={{ padding: "2px 2px" }}
         >
           <Likes />
         </Button>
@@ -111,6 +112,7 @@ const Post = ({ post, setCurrentId }) => {
             size="small"
             color="secondary"
             onClick={() => dispatch(deletePost(post._id))}
+            style={{ padding: "2px 2px" }}
           >
             <DeleteIcon fontSize="small" /> Delete
           </Button>
