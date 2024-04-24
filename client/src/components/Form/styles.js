@@ -15,7 +15,18 @@ export default makeStyles((theme) => ({
     },
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
+  },
+  paperText: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "15px",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "20px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "20px",
+    },
   },
   form: {
     display: "flex",

@@ -15,6 +15,15 @@ export default makeStyles((theme) => ({
   heading: {
     color: "rgba(0,150,255, 1)",
     textDecoration: "none",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "20px",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "30px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "40px",
+    },
   },
   image: {
     marginLeft: "10px",
@@ -37,8 +46,29 @@ export default makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-  purple: {
-    color: theme.palette.getContrastText(deepPurple[500]),
-    backgroundColor: deepPurple[500],
+  logout: {
+    color: "white",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "10px",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "12px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "15px",
+    },
+  },
+
+  signIn: {
+    color: "white",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "10px",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "12px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "15px",
+    },
   },
 }));

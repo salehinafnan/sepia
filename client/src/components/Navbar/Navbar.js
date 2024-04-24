@@ -77,6 +77,7 @@ const Navbar = () => {
             to="/auth"
             variant="contained"
             color="primary"
+            className={classes.signIn}
           >
             Sign In
           </Button>
