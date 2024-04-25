@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { deepPurple } from "@material-ui/core/colors";
 
 export default makeStyles((theme) => ({
   appBar: {
@@ -10,7 +9,7 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "5px 30px",
-    backgroundColor: "rgba(255,255,255,0.8)", // smokey color with 50% opacity
+    backgroundColor: "rgba(255,255,255,0.8)",
   },
   heading: {
     color: "rgba(0,150,255, 1)",
@@ -37,10 +36,14 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     width: "250px",
+    [theme.breakpoints.down("sm")]: {
+      width: "200px",
+    },
   },
   userName: {
     display: "flex",
     alignItems: "center",
+    whiteSpace: "nowrap",
   },
   brandContainer: {
     display: "flex",
@@ -49,26 +52,26 @@ export default makeStyles((theme) => ({
   logout: {
     color: "white",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "10px",
+      fontSize: "8px",
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: "12px",
+      fontSize: "10px",
     },
     [theme.breakpoints.up("lg")]: {
-      fontSize: "15px",
+      fontSize: "12px",
     },
   },
 
   signIn: {
     color: "white",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "10px",
+      fontSize: "8px",
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: "12px",
+      fontSize: "10px",
     },
     [theme.breakpoints.up("lg")]: {
-      fontSize: "15px",
+      fontSize: "12px",
     },
   },
 }));
