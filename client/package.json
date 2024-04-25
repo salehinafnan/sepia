@@ -12,6 +12,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.1",
+    "dotenv": "^16.4.5",
     "jwt-decode": "^4.0.0",
     "moment": "^2.29.4",
     "react": "^17.0.0",
