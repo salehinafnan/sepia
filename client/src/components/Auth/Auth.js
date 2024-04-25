@@ -44,6 +44,7 @@ const Auth = () => {
   };
 
   const switchMode = () => {
+    setFormData(initalState);
     setIsSignup((prevIsSignup) => !prevIsSignup);
     setShowPassword(false);
   };
@@ -61,8 +62,7 @@ const Auth = () => {
     }
   };
 
-  const googleError = () =>
-    alert("Google Sign In was unsuccessful. Try again later");
+  const googleError = () => alert("Google Sign In was unsuccessful.");
 
   return (
     <Grid
