@@ -62,7 +62,7 @@ const Auth = () => {
     }
   };
 
-  const googleError = () => alert("Google Sign In was unsuccessful.");
+  const googleError = () => console.error("Google Sign In was unsuccessful.");
 
   return (
     <Grid
