@@ -61,10 +61,8 @@ const Auth = () => {
     }
   };
 
-  const googleFailure = (error) => {
-    console.log(error);
-    console.log("Google Sign In unsuccessful.");
-  };
+  const googleError = () =>
+    alert("Google Sign In was unsuccessful. Try again later");
 
   return (
     <Grid
@@ -143,7 +141,7 @@ const Auth = () => {
                 </Button>
               )}
               onSuccess={googleSuccess}
-              onFailure={googleFailure}
+              onFailure={googleError}
               cookiePolicy="single_host_origin"
             />
             <Grid container justifyContent="flex-end">
