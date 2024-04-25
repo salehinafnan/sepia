@@ -35,10 +35,7 @@ export default makeStyles((theme) => ({
   profile: {
     display: "flex",
     justifyContent: "space-between",
-    width: "250px",
-    [theme.breakpoints.down("sm")]: {
-      width: "200px",
-    },
+    width: "200px",
   },
   userName: {
     display: "flex",
@@ -73,5 +70,9 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up("lg")]: {
       fontSize: "12px",
     },
+  },
+  avatar: {
+    height: theme.spacing(4),
+    width: theme.spacing(4),
   },
 }));
