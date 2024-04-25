@@ -70,7 +70,7 @@ const Auth = () => {
     <Grid
       container
       component="main"
-      maxWidth="xs"
+      maxwidth="xs"
       justifyContent="center"
       alignItems="center"
     >
