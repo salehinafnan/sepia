@@ -7,10 +7,10 @@ import {
   Button,
   Typography,
 } from "@material-ui/core/";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 
@@ -28,7 +28,7 @@ const Post = ({ post, setCurrentId }) => {
         (like) => like === (user?.result?.googleId || user?.result?._id)
       ) ? (
         <>
-          <ThumbUpAltIcon fontSize="small" />
+          <FavoriteIcon fontSize="small" />
           &nbsp;
           {post.likes.length > 2
             ? `You and ${post.likes.length - 1} others`
@@ -36,7 +36,7 @@ const Post = ({ post, setCurrentId }) => {
         </>
       ) : (
         <>
-          <ThumbUpAltOutlined fontSize="small" />
+          <FavoriteBorderIcon fontSize="small" />
           &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
         </>
       );
@@ -44,8 +44,8 @@ const Post = ({ post, setCurrentId }) => {
 
     return (
       <>
-        <ThumbUpAltOutlined fontSize="small" />
-        &nbsp;Like
+        <FavoriteBorderIcon fontSize="small" />
+        &nbsp;
       </>
     );
   };
@@ -114,7 +114,7 @@ const Post = ({ post, setCurrentId }) => {
             onClick={() => dispatch(deletePost(post._id))}
             style={{ padding: "2px 2px" }}
           >
-            <DeleteIcon fontSize="small" /> Delete
+            <DeleteIcon fontSize="small" />
           </Button>
         )}
       </CardActions>

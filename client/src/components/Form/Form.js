@@ -114,7 +114,7 @@ const Form = ({ currentId, setCurrentId }) => {
           Post
         </Button>
         <Button
-          variant="contained"
+          variant="text"
           color="secondary"
           size="small"
           onClick={clear}

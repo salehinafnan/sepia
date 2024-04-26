@@ -15,7 +15,7 @@ export default makeStyles((theme) => ({
     },
   },
   paper: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(3),
   },
   paperText: {
     [theme.breakpoints.down("sm")]: {
@@ -36,7 +36,7 @@ export default makeStyles((theme) => ({
   },
   fileInput: {
     width: "97%",
-    margin: "10px 0",
+    margin: "15px 0",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
