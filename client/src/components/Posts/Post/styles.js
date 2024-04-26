@@ -50,4 +50,7 @@ export default makeStyles({
     display: "flex",
     justifyContent: "space-between",
   },
+  zoomed: {
+    transform: "scale(0.9)",
+  },
 });

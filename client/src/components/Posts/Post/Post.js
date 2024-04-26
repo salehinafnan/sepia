@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { scroller } from "react-scroll";
 import {
   Card,
@@ -7,6 +7,9 @@ import {
   CardMedia,
   Button,
   Typography,
+  Modal,
+  Backdrop,
+  Fade,
 } from "@material-ui/core/";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
@@ -19,6 +22,7 @@ import { likePost, deletePost } from "../../../actions/posts";
 import useStyles from "./styles";
 
 const Post = ({ post, setCurrentId }) => {
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -60,7 +64,39 @@ const Post = ({ post, setCurrentId }) => {
           "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
         }
         title={post.title}
+        onClick={() => setOpen(true)}
       />
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+              outline: "none",
+            }}
+            onClick={() => setOpen(false)}
+          >
+            <img
+              src={
+                post.selectedFile ||
+                "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
+              }
+              alt={post.title}
+              style={{ width: "95%", height: "95%", objectFit: "contain" }}
+            />
+          </div>
+        </Fade>
+      </Modal>
       <div className={classes.overlay}>
         <Typography variant="h6">{post.name}</Typography>
         <Typography variant="body2">
