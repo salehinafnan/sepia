@@ -23,3 +23,7 @@ The purpose of creating this application was to understand the integration of se
 5. Navigate to the `client` directory and run `npm install` to install the client dependencies.
 6. Run `npm start` to start the client.
 7. Open your browser and navigate to `http://localhost:3000` to view the application.
+
+## Disclaimer
+
+Please note that the posts and login functionality may be slower than expected. This is because the application is using a free MongoDB cluster for database operations, which may have limitations in terms of performance and speed.
