@@ -56,7 +56,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   return (
     <Paper className={classes.paper}>
-      <Element name="createPostForm">
+      <Element name="postForm">
         <form
           autoComplete="off"
           noValidate

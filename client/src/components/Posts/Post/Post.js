@@ -73,7 +73,7 @@ const Post = ({ post, setCurrentId }) => {
           <Button
             onClick={() => {
               setCurrentId(post._id);
-              scroller.scrollTo("createPostForm", {
+              scroller.scrollTo("postForm", {
                 duration: 800,
                 delay: 0,
                 smooth: "easeInOutQuart",
