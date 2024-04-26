@@ -36,12 +36,28 @@ export default makeStyles((theme) => ({
   profile: {
     display: "flex",
     justifyContent: "space-between",
-    width: "200px",
+    width: "280px", // Default width for large screens
+    "@media (max-width:900px)": {
+      width: "230px", // Width for small screens
+    },
+    "@media (max-width:600px)": {
+      width: "115px", // Width for small screens
+    },
   },
   userName: {
     display: "flex",
     alignItems: "center",
     whiteSpace: "nowrap",
+    fontSize: "16px", // Default font size for large screens
+    "@media (max-width:1200px)": {
+      fontSize: "14px", // Font size for medium screens
+    },
+    "@media (max-width:900px)": {
+      fontSize: "12px", // Font size for small screens
+    },
+    "@media (max-width:600px)": {
+      display: "none", // Font size for extra small screens
+    },
   },
   brandContainer: {
     display: "flex",
