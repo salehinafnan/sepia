@@ -3,12 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
   appBar: {
     borderRadius: 10,
-    margin: "20px 0",
+    margin: "15px 0",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "5px 20px",
+    padding: "5px 15px",
     backgroundColor: "rgba(255,255,255,0.8)",
   },
   heading: {
