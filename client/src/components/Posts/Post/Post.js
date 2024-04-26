@@ -76,23 +76,14 @@ const Post = ({ post, setCurrentId }) => {
         }}
       >
         <Fade in={open}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "100%",
-              outline: "none",
-            }}
-            onClick={() => setOpen(false)}
-          >
+          <div className={classes.modalContent} onClick={() => setOpen(false)}>
             <img
               src={
                 post.selectedFile ||
                 "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
               }
               alt={post.title}
-              style={{ width: "95%", height: "95%", objectFit: "contain" }}
+              className={classes.fullImage}
             />
           </div>
         </Fade>

@@ -50,7 +50,17 @@ export default makeStyles({
     display: "flex",
     justifyContent: "space-between",
   },
-  zoomed: {
-    transform: "scale(0.9)",
+  modalContent: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+    outline: "none",
+    backdropFilter: "blur(10px)",
+  },
+  fullImage: {
+    width: "95%",
+    height: "95%",
+    objectFit: "contain",
   },
 });
