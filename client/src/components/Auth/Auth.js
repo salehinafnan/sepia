@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Avatar, Button, Paper, Grid, Typography } from "@material-ui/core";
 
 import Input from "./Input";
-import { AUTH } from "../../constants/actionTypes";
-import { signin, signup } from "../../actions/auth";
+import { AUTH, SET_ERROR } from "../../constants/actionTypes";
 import useStyles from "./styles";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Icon from "./icon";
+
+import * as API from "../../api/index.js";
 
 const initalState = {
   firstName: "",
@@ -20,22 +21,36 @@ const initalState = {
 };
 
 const Auth = () => {
+  const dispatch = useDispatch();
+  const errorMessage = useSelector((state) => state.auth.errors);
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword);
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState(initalState);
-  const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (isSignup) {
-      dispatch(signup(formData, history));
-    } else {
-      dispatch(signin(formData, history));
+      if (formData.password !== formData.confirmPassword) {
+        dispatch({ type: SET_ERROR, payload: "Passwords don't match." });
+        return;
+      }
+    }
+
+    try {
+      const { data } = isSignup
+        ? await API.signUp(formData)
+        : await API.signIn(formData);
+
+      dispatch({ type: AUTH, data });
+
+      history.push("/");
+    } catch (error) {
+      dispatch({ type: SET_ERROR, payload: error.response.data.message });
     }
   };
 
@@ -58,11 +73,17 @@ const Auth = () => {
 
       history.push("/");
     } catch (error) {
-      console.log(error);
+      dispatch({ type: SET_ERROR, payload: error.message });
     }
   };
 
   const googleError = () => console.error("Google Sign In was unsuccessful.");
+
+  useEffect(() => {
+    if (errorMessage) {
+      alert(errorMessage);
+    }
+  }, [errorMessage]);
 
   return (
     <Grid

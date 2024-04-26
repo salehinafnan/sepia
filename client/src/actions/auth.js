@@ -1,4 +1,6 @@
-import { AUTH } from "../constants/actionTypes";
+// File: client/src/actions/auth.js
+
+import { AUTH, SET_ERROR } from "../constants/actionTypes";
 import * as api from "../api/index.js";
 
 export const signin = (formData, router) => async (dispatch) => {
@@ -9,7 +11,7 @@ export const signin = (formData, router) => async (dispatch) => {
 
     router.push("/");
   } catch (error) {
-    console.log(error);
+    dispatch({ type: SET_ERROR, payload: error.response.data.message });
   }
 };
 
@@ -21,6 +23,6 @@ export const signup = (formData, router) => async (dispatch) => {
 
     router.push("/");
   } catch (error) {
-    console.log(error);
+    dispatch({ type: SET_ERROR, payload: error.response.data.message });
   }
 };
