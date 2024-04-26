@@ -10,6 +10,7 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     padding: "5px 15px",
     backgroundColor: "rgba(255,255,255,0.8)",
+    backdropFilter: "blur(40px)",
   },
   heading: {
     color: "rgba(0,150,255, 1)",
