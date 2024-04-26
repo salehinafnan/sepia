@@ -1,4 +1,5 @@
 import React from "react";
+import { scroller } from "react-scroll";
 import {
   Card,
   CardActions,
@@ -70,7 +71,14 @@ const Post = ({ post, setCurrentId }) => {
         user?.result?._id === post?.creator) && (
         <div className={classes.overlay2}>
           <Button
-            onClick={() => setCurrentId(post._id)}
+            onClick={() => {
+              setCurrentId(post._id);
+              scroller.scrollTo("createPostForm", {
+                duration: 800,
+                delay: 0,
+                smooth: "easeInOutQuart",
+              });
+            }}
             style={{ color: "white" }}
             size="small"
           >
