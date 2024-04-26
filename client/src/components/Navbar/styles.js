@@ -36,27 +36,27 @@ export default makeStyles((theme) => ({
   profile: {
     display: "flex",
     justifyContent: "space-between",
-    width: "280px", // Default width for large screens
+    width: "280px",
     "@media (max-width:900px)": {
-      width: "230px", // Width for small screens
+      width: "230px",
     },
     "@media (max-width:600px)": {
-      width: "115px", // Width for small screens
+      width: "115px",
     },
   },
   userName: {
     display: "flex",
     alignItems: "center",
     whiteSpace: "nowrap",
-    fontSize: "16px", // Default font size for large screens
+    fontSize: "16px",
     "@media (max-width:1200px)": {
-      fontSize: "14px", // Font size for medium screens
+      fontSize: "14px",
     },
     "@media (max-width:900px)": {
-      fontSize: "12px", // Font size for small screens
+      fontSize: "12px",
     },
     "@media (max-width:600px)": {
-      display: "none", // Font size for extra small screens
+      display: "none",
     },
   },
   brandContainer: {
