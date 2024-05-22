@@ -13,6 +13,7 @@ The purpose of creating this application was to understand the integration of se
 - Post Interaction: Authenticated users can like and delete their own posts.
 - Real-time Updates: The application updates in real-time as users interact with posts.
 - Fully Responsive: The application is fully responsive and can adapt to different screen sizes.
+- Proper Database: All the user and post data are stored in a MongoDB cluster.
 
 ## How to Run the Project
 
