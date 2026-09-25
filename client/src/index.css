@@ -1,4 +1,41 @@
-body {
-  background-color: #1d1d1d;
-  background-image: none;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-sepia-50: #faf6f1;
+  --color-sepia-100: #f2e8dc;
+  --color-sepia-200: #e4d0b8;
+  --color-sepia-300: #d3b290;
+  --color-sepia-400: #c1916a;
+  --color-sepia-500: #a9744d;
+  --color-sepia-600: #8c5c3b;
+  --color-sepia-700: #704a31;
+  --color-sepia-800: #5a3c2a;
+  --color-sepia-900: #4a3224;
+  --color-sepia-950: #291a12;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    scrollbar-gutter: stable;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  /* Modal dialogs don't stop the page behind them from scrolling on their own. */
+  :root:has(dialog:modal) {
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100;
+  }
+
+  ::selection {
+    @apply bg-sepia-200 text-sepia-950;
+  }
 }
