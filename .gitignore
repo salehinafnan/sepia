@@ -1,4 +1,8 @@
 node_modules
 .env
+.env.local
+*.local
 build
+dist
 .vscode
+.DS_Store
