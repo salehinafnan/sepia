@@ -1,21 +1,26 @@
-import express from "express";
+import express, { Router } from "express";
 
 import {
-  getPosts,
-  getPost,
   createPost,
-  updatePost,
-  likePost,
   deletePost,
+  getPostImage,
+  getPosts,
+  likePost,
+  unlikePost,
+  updatePost,
 } from "../controllers/posts.js";
-
-const router = express.Router();
 import auth from "../middleware/auth.js";
 
+const router = Router();
+// Parsed after auth so anonymous clients can't make the server buffer large bodies.
+const json = express.json({ limit: "3mb" });
+
 router.get("/", getPosts);
-router.post("/", auth, createPost);
-router.patch("/:id", auth, updatePost);
+router.post("/", auth, json, createPost);
+router.get("/:id/image", getPostImage);
+router.patch("/:id", auth, json, updatePost);
 router.delete("/:id", auth, deletePost);
-router.patch("/:id/likePost", auth, likePost);
+router.put("/:id/like", auth, likePost);
+router.delete("/:id/like", auth, unlikePost);
 
 export default router;

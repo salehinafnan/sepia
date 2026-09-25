@@ -1,28 +1,22 @@
-import jwt from "jsonwebtoken";
+import { jwtVerify } from "jose";
 
-const secret = "test";
+import config from "../config.js";
+import { HttpError } from "./errors.js";
 
 const auth = async (req, res, next) => {
+  const [scheme, token] = req.get("Authorization")?.split(" ") ?? [];
+  if (scheme !== "Bearer" || !token)
+    throw new HttpError(401, "Please sign in to continue");
+
   try {
-    const token = req.headers.authorization.split(" ")[1];
-    const isCustomAuth = token.length < 500;
-
-    let decodedData;
-
-    if (token && isCustomAuth) {
-      decodedData = jwt.verify(token, secret);
-
-      req.userId = decodedData?.id;
-    } else {
-      decodedData = jwt.decode(token);
-
-      req.userId = decodedData?.sub;
-    }
-
-    next();
-  } catch (error) {
-    console.log(error);
+    const { payload } = await jwtVerify(token, config.jwtKey, {
+      algorithms: ["HS256"],
+    });
+    req.userId = payload.sub;
+  } catch {
+    throw new HttpError(401, "Your session has expired, please sign in again");
   }
+  next();
 };
 
 export default auth;

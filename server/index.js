@@ -1,35 +1,22 @@
-import express from "express";
-import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import cors from "cors";
-import dotenv from "dotenv";
 
-import postRoutes from "./routes/posts.js";
-import userRouter from "./routes/user.js";
+import app from "./app.js";
+import config from "./config.js";
 
-const app = express();
-dotenv.config();
+if (!config.mongoUrl) throw new Error("CONNECTION_URL must be set");
 
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
+await mongoose.connect(config.mongoUrl);
+console.log("MongoDB connected");
 
-app.use("/posts", postRoutes);
-app.use("/user", userRouter);
-
-app.get("/", (req, res) => {
-  res.send("Welcome to my Web App");
+const server = app.listen(config.port, (error) => {
+  if (error) throw error;
+  console.log(`Server running on port ${config.port}`);
 });
 
-const PORT = process.env.PORT || 5000;
-
-mongoose
-  .connect(process.env.CONNECTION_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("MongoDB connected");
-    app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
-  })
-  .catch((error) => console.log(error.message));
+const shutdown = () =>
+  server.close(async () => {
+    await mongoose.disconnect();
+    process.exit(0);
+  });
+process.once("SIGTERM", shutdown);
+process.once("SIGINT", shutdown);
